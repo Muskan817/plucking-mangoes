@@ -3,8 +3,11 @@ const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
+
 var mango1,mango2,mango3,mango4,mango5,mango6,mango7;
-var launcher1,tree1,boy1,stone1;
+var tree1,boy1,stone1;
+var launcher1;
+
 function preload()
 {
 	
@@ -48,7 +51,17 @@ function draw() {
   boy1.display();
   stone1.display();
   launcher1.display();
+  detectCollision(stone1,mango1);
+  detectCollision(stone1,mango2);
+  detectCollision(stone1,mango3);
+  detectCollision(stone1,mango4);
+  detectCollision(stone1,mango5);
+  detectCollision(stone1,mango6);
+  detectCollision(stone1,mango7);
+  keyPressed();
   drawSprites();
+  mouseDragged();
+  mouseReleased();
  
 }
 function mouseDragged(){
@@ -64,12 +77,17 @@ var pos = lmango.body.position
 var pos1  = lstone.body.position
 
 var distance = dist(pos.x,pos.y,pos1.x,pos1.y)
-if(distance<=lmango.width+lstone.width){
 
+if(distance<=lmango.width+lstone.width){
 Matter.Body.setStatic(lmango.body,false);
 }
 
+}
 
-
+function keyPressed(){
+if (keyCode===32){
+Matter.Body.setPosition(stone1.body,{x:60,y:560})
+launcher1.attach(stone1.body);
+}
 }
 
