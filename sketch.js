@@ -3,6 +3,7 @@ const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
+const Constraint = Matter.Constraint;
 
 var mango1,mango2,mango3,mango4,mango5,mango6,mango7;
 var tree1,boy1,stone1;
